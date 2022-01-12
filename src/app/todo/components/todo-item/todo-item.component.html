@@ -1,0 +1,13 @@
+<div class="card" *ngIf="todo">
+    <div class="card-header">
+      {{ index }} - {{ todo.title }} - 
+      <span *ngIf="todo.dueDate">{{ todo.dueDate }}</span>
+      <span class="badge badge-success" *ngIf="todo.done">Done</span>
+    </div>
+    <div class="card-body">
+        {{ todo.description }}
+        <div>
+            <button type="button" (click)="test()" class="btn btn-outline-success">Erledigt</button>
+        </div>
+    </div>
+</div>

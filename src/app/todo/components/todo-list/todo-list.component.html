@@ -1,0 +1,4 @@
+<h1>Willkommen zu deiner ToDo-Liste, {{ userName }}</h1>
+<div *ngFor="let todo of todos; let i = index">
+    <app-todo-item [todo]="todo" [index]="i" (doneClicked)="onDoneClicked($event)"></app-todo-item>
+</div>
