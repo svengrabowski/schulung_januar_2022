@@ -1,6 +1,7 @@
 <h1>Willkommen zu deiner ToDo-Liste, {{ userName }}</h1>
+<app-todo-form (todoSubmitted)="saveNewTodo($event)" (todoEdited)="updateTodoItem($event)" [todo]="todoItemToBeEdited"></app-todo-form>
 <div *ngFor="let todo of todos; let i = index">
-    <app-todo-item [todo]="todo" [index]="i" (doneClicked)="onDoneClicked($event)" (deleteClicked)="onDeleteClicked($event)"></app-todo-item>
+    <app-todo-item [todo]="todo" [index]="i" (editClicked)="onEditClicked($event)" (doneClicked)="onDoneClicked($event)" (deleteClicked)="onDeleteClicked($event)"></app-todo-item>
 </div>
 <ng-container *ngIf="error">
     <div class="alert alert-danger" role="alert">

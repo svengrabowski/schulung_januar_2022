@@ -24,4 +24,12 @@ export class TodoService {
     return this.httpClient.delete<TodoItem>(`${this.baseUrl}todos/${item.id}`);
   }
 
+  saveTodo(item: TodoItem): Observable<TodoItem> {
+    return this.httpClient.post<TodoItem>(`${this.baseUrl}todos`, item);
+  }
+
+  updateTodo(item: TodoItem): Observable<TodoItem> {
+    return this.httpClient.put<TodoItem>(`${this.baseUrl}todos/${item.id}`, item);
+  }
+
 }

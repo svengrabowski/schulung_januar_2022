@@ -14,6 +14,7 @@ export class TodoListComponent implements OnInit, OnDestroy {
   public todos: TodoItem[] = [];
   public error: boolean = false;
   public loading: boolean = true;
+  public todoItemToBeEdited : TodoItem = new TodoItem(); 
   
   private subscriptiosn: Subscription[] = [];
 
@@ -45,6 +46,39 @@ export class TodoListComponent implements OnInit, OnDestroy {
       console.log(data);
       this.todos = this.todos.filter(todoItem => todoItem.id !== item.id);
     }));
+  }
+
+  test() {
+    let a = {
+      name: 'Sven'
+    }
+
+    let b = {
+      aProp: a,
+      nachnamen: 'Grabowski'
+    }
+
+    let c = {...b};
+    a.name = 'Tom';
+
+    console.log(c);
+  }
+
+  saveNewTodo(item: TodoItem): void {
+    this.subscriptiosn.push(this.todoService.saveTodo(item).subscribe(data => {
+      this.todos.push(data);
+    }));
+  }
+
+  onEditClicked(item: TodoItem): void {
+    this.todoItemToBeEdited = { ...item };
+  }
+
+  updateTodoItem(item: TodoItem): void {
+    this.todoService.updateTodo(item).subscribe(data => {
+      const index = this.todos.findIndex(item => item.id === data.id);
+      this.todos[index] = data;
+    });
   }
 
   ngOnDestroy(): void {

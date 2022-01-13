@@ -1,0 +1,14 @@
+<form (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm">
+    <input type="text" class="form-control" name="title" [(ngModel)]="todo.title" required #title="ngModel" placeholder="Title">
+    <div *ngIf="f.submitted || (title.invalid && (title.touched || title.dirty))" class="text-danger">
+        <div *ngIf="title.errors && title.errors['required']">Feld Title ist ein pflichtfeld</div>
+    </div>
+    <input type="text" class="form-control" name="description" [(ngModel)]="todo.description" required #decription='ngModel' placeholder="Description">
+    <div *ngIf="f.submitted || (decription.invalid && (decription.touched || decription.dirty))" class="text-danger">
+        <div *ngIf="decription.errors && decription.errors['required']">Feld Description ist ein pflichtfeld</div>
+    </div>
+    <input type="date" class="form-control" name="dueDate" [(ngModel)]="todo.dueDate">
+    <div>
+        <button type="submit" [disabled]="f.form.invalid" class="btn btn-outline-success">Speichern</button>
+    </div>
+</form>

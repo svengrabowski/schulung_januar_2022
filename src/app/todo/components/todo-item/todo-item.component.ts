@@ -12,6 +12,7 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   @Output() doneClicked = new EventEmitter<TodoItem>();
   @Output() deleteClicked = new EventEmitter<TodoItem>();
+  @Output() editClicked = new EventEmitter<TodoItem>();
 
   constructor() { 
     console.log('Constructor: ', this.todo);
@@ -31,5 +32,9 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   deleteBtnClicked(): void {
     this.deleteClicked.emit(this.todo!);
+  }
+
+  editBtnClicked(): void {
+    this.editClicked.emit(this.todo!);
   }
 }

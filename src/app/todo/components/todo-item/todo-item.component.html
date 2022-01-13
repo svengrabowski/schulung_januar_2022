@@ -9,6 +9,7 @@
         <div>
             <button type="button" (click)="test()" [className]="todo.done ? 'btn btn-outline-danger' : 'btn btn-outline-success'">{{ todo.done ? "Doch nicht" : "Erledigt" }}</button>
             <button type="button" (click)="deleteBtnClicked()" class="btn btn-outline-danger">Löschen</button>
+            <button type="button" (click)="editBtnClicked()" class="btn btn-outline-primary">Bearbeiten</button>
         </div>
     </div>
 </div>
