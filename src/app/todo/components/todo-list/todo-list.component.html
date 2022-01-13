@@ -1,4 +1,14 @@
 <h1>Willkommen zu deiner ToDo-Liste, {{ userName }}</h1>
 <div *ngFor="let todo of todos; let i = index">
-    <app-todo-item [todo]="todo" [index]="i" (doneClicked)="onDoneClicked($event)"></app-todo-item>
+    <app-todo-item [todo]="todo" [index]="i" (doneClicked)="onDoneClicked($event)" (deleteClicked)="onDeleteClicked($event)"></app-todo-item>
+</div>
+<ng-container *ngIf="error">
+    <div class="alert alert-danger" role="alert">
+        ToDos konnten nicht geladen werden.
+    </div>
+</ng-container>
+<div class="d-flex justify-content-center" *ngIf="loading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
 </div>

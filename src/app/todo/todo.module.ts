@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TodoService } from './services/todo-service.service';
-
+import { CutStringPipe } from './pipes/cut-string.pipe';
 
 @NgModule({
   declarations: [
     TodoListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    CutStringPipe
   ],
   imports: [
     HttpClientModule,

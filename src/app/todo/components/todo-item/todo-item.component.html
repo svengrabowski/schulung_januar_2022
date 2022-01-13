@@ -1,13 +1,14 @@
 <div class="card" *ngIf="todo">
     <div class="card-header">
-      {{ index }} - {{ todo.title }} - 
-      <span *ngIf="todo.dueDate">{{ todo.dueDate }}</span>
+      {{ index }} - {{ todo.title | uppercase | cutString: 10 }} - 
+      <span *ngIf="todo.dueDate">{{ todo.dueDate | date: 'dd.MM.yyyy' }}</span>
       <span class="badge badge-success" *ngIf="todo.done">Done</span>
     </div>
     <div class="card-body">
-        {{ todo.description }}
+        {{ todo.description | cutString: 10 }}
         <div>
-            <button type="button" (click)="test()" class="btn btn-outline-success">Erledigt</button>
+            <button type="button" (click)="test()" [className]="todo.done ? 'btn btn-outline-danger' : 'btn btn-outline-success'">{{ todo.done ? "Doch nicht" : "Erledigt" }}</button>
+            <button type="button" (click)="deleteBtnClicked()" class="btn btn-outline-danger">Löschen</button>
         </div>
     </div>
 </div>
