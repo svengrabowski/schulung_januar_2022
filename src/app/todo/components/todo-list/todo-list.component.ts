@@ -48,22 +48,6 @@ export class TodoListComponent implements OnInit, OnDestroy {
     }));
   }
 
-  test() {
-    let a = {
-      name: 'Sven'
-    }
-
-    let b = {
-      aProp: a,
-      nachnamen: 'Grabowski'
-    }
-
-    let c = {...b};
-    a.name = 'Tom';
-
-    console.log(c);
-  }
-
   saveNewTodo(item: TodoItem): void {
     this.subscriptiosn.push(this.todoService.saveTodo(item).subscribe(data => {
       this.todos.push(data);

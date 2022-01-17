@@ -1,0 +1,8 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="title" placeholder="Title" class="form-control" formControlName="title">
+    <app-validation-message [control]="todoForm.get('title')"></app-validation-message>
+    <input type="text" name="description" placeholder="Description" class="form-control" formControlName="description">
+    <app-validation-message [control]="todoForm.get('description')"></app-validation-message>
+    <input type="date" name="dueDate" class="form-control" formControlName="dueDate">
+    <button type="submit" [disabled]="todoForm.invalid" class="btn btn-outline-success">Speichern</button>
+</form>

@@ -1,5 +1,6 @@
 <h1>Willkommen zu deiner ToDo-Liste, {{ userName }}</h1>
-<app-todo-form (todoSubmitted)="saveNewTodo($event)" (todoEdited)="updateTodoItem($event)" [todo]="todoItemToBeEdited"></app-todo-form>
+<!--<app-todo-form (todoSubmitted)="saveNewTodo($event)" (todoEdited)="updateTodoItem($event)" [todo]="todoItemToBeEdited"></app-todo-form>-->
+<app-todo-from-reactive (todoSubmitted)="saveNewTodo($event)" (todoEdited)="updateTodoItem($event)" [todo]="todoItemToBeEdited"></app-todo-from-reactive>
 <div *ngFor="let todo of todos; let i = index">
     <app-todo-item [todo]="todo" [index]="i" (editClicked)="onEditClicked($event)" (doneClicked)="onDoneClicked($event)" (deleteClicked)="onDeleteClicked($event)"></app-todo-item>
 </div>

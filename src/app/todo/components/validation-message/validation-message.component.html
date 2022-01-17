@@ -1,0 +1,11 @@
+<div class="text-danger" *ngIf="(control?.touched || control?.dirty)">
+    <div *ngIf="control?.hasError('required')">
+        Feld ist required
+    </div>
+    <div *ngIf="control?.hasError('minlength')">
+        Muss mindestesn 5 zeichen lang sein
+    </div>
+    <div *ngIf="control?.hasError('hasbob')">
+        Der Titel darf Bob nicht enthalten
+    </div>
+</div>
